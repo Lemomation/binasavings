@@ -153,11 +153,15 @@ bbcode_enabled = true
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Firebase Request" type="HTTPRequest" parent="ProgressBar/PROGREss label2"]
+
 [node name="Countdown" type="RichTextLabel" parent="."]
 layout_mode = 0
 offset_right = 226.0
 offset_bottom = 74.0
 bbcode_enabled = true
+text = "connecting to firebase...
+retrieving date"
 script = ExtResource("3_i4801")
 
 [connection signal="item_selected" from="ConstOptions" to="." method="_on_constoptions_item_selected"]
