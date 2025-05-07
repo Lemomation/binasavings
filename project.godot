@@ -13,7 +13,8 @@ config_version=5
 config/name="binasavings"
 run/main_scene="res://app.tscn"
 config/features=PackedStringArray("4.4", "GL Compatibility")
-config/icon="res://icon.svg"
+boot_splash/image="uid://byexdognpn40a"
+config/icon="uid://kmsqs7i33awu"
 
 [display]
 
