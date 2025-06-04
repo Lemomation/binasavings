@@ -7,6 +7,8 @@ extends Control
 @onready var refoptions: OptionButton = $refoptions
 @onready var progr_ess_label: RichTextLabel = $"ProgressBar/PROGREss label"
 @onready var progr_ess_label_2: RichTextLabel = $"ProgressBar/PROGREss label2"
+@onready var fatesenter: LineEdit = $Fatesenter
+@onready var totalprimosrtl: RichTextLabel = $Totalprimosrtl
 
 const SAVE_PATH := "user://preferences.json"
 
@@ -62,10 +64,14 @@ func _update_total_goal() -> void:
 
 func _update_progress() -> void:
 	var current_primos := int(line_edit.text)
-	progress_bar.value = clamp(current_primos, 0, GOAL_PRIMOS)
+	var current_fates := int(fatesenter.text)
+	var current_total_primos := current_fates*160 + current_primos
+	
+	progress_bar.value = clamp(current_total_primos, 0, GOAL_PRIMOS)
 	print("Current primos:", current_primos, "/", GOAL_PRIMOS)
-	progr_ess_label.text = str(current_primos)
+	progr_ess_label.text = str(current_total_primos)
 	progr_ess_label_2.text = str(GOAL_PRIMOS)
+	totalprimosrtl.text = str(current_total_primos)
 func _save_preferences() -> void:
 	var data := {
 		"current_primos": line_edit.text,
